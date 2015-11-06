@@ -13,7 +13,7 @@ set(RPM_APP_GROUP "Development/Tools")
 # set (LIB_NAME "${PROJECT_NAME}")
 set (PARENT_PATH ".")
 set (PARENT_PY_PKG "")
-set (PKG_NAME "danse.us")
+set (PKG_NAME "danse.ins")
 
 
 # lib64
