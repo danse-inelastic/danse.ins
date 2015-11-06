@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.6)
 project (danse_ins)
 
-set(VERSION "0.1")
+set(VERSION "1.0")
 set(AUTHOR "Jiao Lin")
 set(VENDOR "DANSE")
 set(SUMMARY "danse.ins python package")
