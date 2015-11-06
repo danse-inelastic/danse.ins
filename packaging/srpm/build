@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+docker build -t linjiao/danse.ins-srpm .
+docker run -v $PWD:/OUTPUT linjiao/danse.ins-srpm mv /danse.ins/build/rpm_build/SRPMS /OUTPUT

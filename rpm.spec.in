@@ -40,7 +40,7 @@ rm -rf build_tree
 
 %files
 %defattr(-,root,root,-)
-%{prefix}/include/*
+# %{prefix}/include/*  # commented out for now. should put <portinfo> etc here
 %{prefix}/@INSTALL_LIB_DIR@/*
 
 %changelog
