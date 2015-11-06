@@ -40,7 +40,7 @@ rm -rf build_tree
 
 %files
 %defattr(-,root,root,-)
-%dir %{prefix}
-%{prefix}/*
+%{prefix}/include/*
+%{prefix}/@INSTALL_LIB_DIR@/*
 
 %changelog
