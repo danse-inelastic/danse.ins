@@ -35,6 +35,8 @@ mark_as_advanced(INSTALL_LIB_DIR)
 # needs python
 find_package ( PythonLibs REQUIRED )
 find_package ( PythonInterp REQUIRED )
+# python installation path
+set(INSTALL_PY_PATH "${INSTALL_LIB_DIR}/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages")
 
 #
 enable_testing()
@@ -43,6 +45,7 @@ enable_testing()
 # add_subdirectory(lib)
 # add_subdirectory(pyext)
 add_subdirectory(python)
+add_subdirectory(bin)
 # add_subdirectory(tests)
 
 # packaging
