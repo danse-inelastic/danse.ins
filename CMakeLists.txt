@@ -1,12 +1,14 @@
 cmake_minimum_required (VERSION 2.6)
 project (danse_ins)
 
-set(VERSION "1.0")
+set(VERSION "0.1")
 set(AUTHOR "Jiao Lin")
+set(AUTHOR_EMAILE "jiao.lin@gmail.com")
 set(VENDOR "DANSE")
-set(SUMMARY "danse.ins python package")
+set(SUMMARY "danse.ins package")
 set(LICENSE "BSD")
 set(RPM_APP_GROUP "Development/Tools")
+set(GITHUB_URL "https://github.com/danse-inelastic/danse.ins")
 
 # variables
 # set (PYBINDING_NAME "${PROJECT_NAME}module")
@@ -99,3 +101,6 @@ add_custom_target(
   srpm
   DEPENDS ${SRC_RPM}
   )
+
+# docker folder for build and test packaging artifacts
+add_subdirectory(docker)
