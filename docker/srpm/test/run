@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-docker build -t linjiao/danse.ins-srpm-test .
+docker build -t linjiao/danse.ins-srpm-test . \
+    && docker run -t linjiao/danse.ins-srpm-test find /opt/danse
