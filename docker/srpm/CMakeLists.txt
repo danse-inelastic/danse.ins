@@ -1,13 +1,13 @@
 # docker 
 
 configure_file(prepare/Dockerfile prepare/Dockerfile)
-configure_file(prepare/run prepare/run)
+configure_file(prepare/run.in prepare/run)
 
-configure_file(build/Dockerfile build/Dockerfile)
-configure_file(build/run build/run)
+configure_file(build/Dockerfile.in build/Dockerfile)
+configure_file(build/run.in build/run)
 
 configure_file(test/Dockerfile.in test/Dockerfile)
-configure_file(test/run test/run)
+configure_file(test/run.in test/run)
 
 add_custom_target( 
   build-srpm-deps
