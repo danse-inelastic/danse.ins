@@ -7,7 +7,10 @@ License:        @CPACK_PACKAGE_LICENSE@
 Group:          @CPACK_PACKAGE_APP_GROUP@
 Source:         @CPACK_PACKAGE_NAME@-@CPACK_PACKAGE_VERSION@.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRequires:  gcc-c++
 BuildRequires:	cmake >= 2.6
+BuildRequires:	make
+BuildRequires:  python-devel
 BuildRequires:	python
 
 Requires:       python
@@ -27,7 +30,7 @@ cd ..
 rm -rf build_tree
 mkdir build_tree
 cd build_tree
-cmake -DCMAKE_INSTALL_PREFIX=%{rpmprefix} ../%{srcdirname}
+cmake -DCMAKE_INSTALL_PREFIX=%{rpmprefix} -DDEPLOYMENT_PREFIX=${prefix} ../%{srcdirname}
 make
   
 %install 
@@ -35,6 +38,7 @@ cd ../build_tree
 make install
 
 %clean
+cd ..
 rm -rf %{srcdirname}
 rm -rf build_tree
 
