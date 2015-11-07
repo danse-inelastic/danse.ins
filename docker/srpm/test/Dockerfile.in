@@ -2,6 +2,7 @@ FROM fedora:21
 
 MAINTAINER "Jiao Lin <jiao.lin@gmail.com>"
 
+RUN yum install -y deltarpm
 RUN yum install -y git cmake make gcc-c++ python python-devel rpm-build
 # RUN rpmbuild --rebuild https://github.com/danse-inelastic/danse.ins/releases/download/v1.0/danse.ins-1.0-0.src.rpm
 RUN rpmbuild --rebuild ${GITHUB_URL}/releases/download/v${VERSION}/${PKG_NAME}-${VERSION}-${CPACK_PACKAGE_RELEASE}.src.rpm
