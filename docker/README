@@ -1,0 +1,16 @@
+To build src rpm:
+
+ $ git clone <repo>/danse.ins
+ $ mkdir build
+ $ cd build
+ $ cmake ../danse.ins
+ $ (sudo) make build-srpm
+
+src rpm will be in docker/srpm/build/SRPMS/
+
+Upload it to release site.
+
+Then test the src rpm by
+
+ $ (sudo) make test-srpm
+
