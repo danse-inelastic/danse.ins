@@ -17,6 +17,16 @@ set (PARENT_PATH ".")
 set (PARENT_PY_PKG "")
 set (PKG_NAME "danse.ins")
 
+# packaging with the help of docker and packagecloud
+# package repository at packagecloud
+set (PKGCLOUD_USERNAME "linjiao")
+set (PKGCLOUD_REPO "danse_ins")
+# dependencies. actually no need to specify python in this case
+# but just to make sure the install command not fail
+# add this redundant dependency python
+set (DOCKER_PKGING_DEPS_DEB "python")
+set (DOCKER_PKGING_DEPS_RPM "python")
+set (DOCKER_PKGING_TEST_SRPM "find /opt/danse && cat /opt/danse/bin/setup-danse.sh")
 
 # lib64
 get_property(LIB64 GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS)
@@ -107,4 +117,12 @@ add_custom_target(
   )
 
 # docker folder for build and test packaging artifacts
+execute_process(
+  COMMAND rm -rf docker
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  )
+execute_process(
+  COMMAND git clone https://github.com/danse-inelastic/packaging-use-docker docker
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+  )
 add_subdirectory(docker)
