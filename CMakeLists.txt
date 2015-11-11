@@ -27,6 +27,8 @@ set (PKGCLOUD_REPO "danse_ins")
 set (DOCKER_PKGING_DEPS_DEB "python")
 set (DOCKER_PKGING_DEPS_RPM "python")
 set (DOCKER_PKGING_TEST_SRPM "find /opt/danse && cat /opt/danse/bin/setup-danse.sh")
+set (DOCKER_PKGING_TEST_RPM "find /opt/danse && cat /opt/danse/bin/setup-danse.sh")
+set (DOCKER_PKGING_TEST_DEB "find /opt/danse && cat /opt/danse/bin/setup-danse.sh")
 
 # lib64
 get_property(LIB64 GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS)
