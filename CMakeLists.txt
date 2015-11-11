@@ -19,8 +19,8 @@ set (PKG_NAME "danse.ins")
 
 # packaging with the help of docker and packagecloud
 # package repository at packagecloud
-set (PKGCLOUD_USERNAME "linjiao")
-set (PKGCLOUD_REPO "danse_ins")
+set (PKGCLOUD_USERNAME "danse")
+set (PKGCLOUD_REPO "ins")
 # dependencies. actually no need to specify python in this case
 # but just to make sure the install command not fail
 # add this redundant dependency python
