@@ -21,6 +21,9 @@ set (PKG_NAME "danse.ins")
 # package repository at packagecloud
 set (PKGCLOUD_USERNAME "danse")
 set (PKGCLOUD_REPO "ins")
+# debian
+set(DOCKER_PKGING_DEB_DIST_NAME "ubuntu")
+set(DOCKER_PKGING_DEB_DIST_VERSION "12.04")
 # dependencies. actually no need to specify python in this case
 # but just to make sure the install command not fail
 # add this redundant dependency python
