@@ -9,6 +9,7 @@ set(SUMMARY "danse.ins package")
 set(LICENSE "BSD")
 set(RPM_APP_GROUP "Development/Tools")
 set(GITHUB_URL "https://github.com/danse-inelastic/danse.ins")
+set(HOMEPAGE "https://github.com/danse-inelastic/danse.ins")
 
 # variables
 # set (PYBINDING_NAME "${PROJECT_NAME}module")
@@ -32,6 +33,22 @@ set (DOCKER_PKGING_DEPS_RPM "python")
 set (DOCKER_PKGING_TEST_SRPM "find /opt/danse && cat /opt/danse/bin/setup-danse.sh")
 set (DOCKER_PKGING_TEST_RPM "find /opt/danse && cat /opt/danse/bin/setup-danse.sh")
 set (DOCKER_PKGING_TEST_DEB "find /opt/danse && cat /opt/danse/bin/setup-danse.sh")
+set (CONDA_PKGING_BUILD_DEPS "python")
+set (CONDA_PKGING_RUN_DEPS "python")
+
+# get cmake_utils
+IF(EXISTS "cmake_utils/")
+  execute_process(
+    COMMAND git pull
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/cmake_utils
+    )
+ELSE(EXISTS "cmake_utils/")
+  execute_process(
+    COMMAND git clone https://github.com/danse-inelastic/cmake_utils
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    )
+ENDIF(EXISTS "cmake_utils/")
+set(CMAKE_MODULE_PATH ${PROJECT_BINARY_DIR}/cmake_utils)
 
 # lib64
 get_property(LIB64 GLOBAL PROPERTY FIND_LIBRARY_USE_LIB64_PATHS)
@@ -121,13 +138,8 @@ add_custom_target(
   DEPENDS ${SRC_RPM}
   )
 
-# docker folder for build and test packaging artifacts
-execute_process(
-  COMMAND rm -rf docker
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  )
-execute_process(
-  COMMAND git clone https://github.com/danse-inelastic/packaging-use-docker docker
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  )
-add_subdirectory(docker)
+# folders for build and test packaging artifacts
+# deb/rpm
+include(docker)
+# conda
+include(conda)
